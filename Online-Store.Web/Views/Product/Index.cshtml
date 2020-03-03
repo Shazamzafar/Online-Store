@@ -4,16 +4,19 @@
 }
 
 
-<div id="tableContiner">
-@{
-    Html.RenderAction("ProductTable");
+<div class="container">
 
-    //Html.RenderAction("Create");
+    <div id="tableContiner">
+        @{
+            Html.RenderAction("ProductTable");
 
- }
+            //Html.RenderAction("Create");
+
+        }
 
     </div>
+    <hr />
+    <div id="actionContainer">
 
-<div id="actionContainer">
-
-</div>
+    </div>
+ </div>

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace Online_Store.Services
 {
@@ -21,9 +22,12 @@ namespace Online_Store.Services
 
         public  List<Product> GetProducts()
         {
+            //var context = new OSContext();
+            //return context.Products.ToList();
+
             using (var context = new OSContext())
             {
-                return context.Products.ToList();
+                return context.Products.Include(x => x.Category).ToList();
             }
         }
 
@@ -31,6 +35,9 @@ namespace Online_Store.Services
         {
             using (var context = new OSContext())
             {
+                context.Entry(product. Category).State = System.Data.Entity.EntityState.Unchanged;
+
+
                 context.Products.Add(product);
 
                 context.SaveChanges();
