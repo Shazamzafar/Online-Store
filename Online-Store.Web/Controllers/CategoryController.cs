@@ -1,5 +1,6 @@
 ﻿using Online_Store.Entities;
 using Online_Store.Services;
+using Online_Store.Web.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,28 +12,52 @@ namespace Online_Store.Web.Controllers
     public class CategoryController : Controller
     {
         // GET: Category
-        CategoriesServices categoryService = new CategoriesServices();
+        CategoriesService categoryService = new CategoriesService();
 
         [HttpGet]
         public ActionResult Index()
         {
-            var categories = categoryService.GetCategories();
 
-            return View(categories);
+            return View();
+        }
+
+        public ActionResult CategoryTable(string search)
+        {
+            CategorySearchViewModel model = new CategorySearchViewModel();
+
+            model.Categories = categoryService.GetCategories();
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                model.SearchTerm = search;
+
+                model.Categories = model.Categories.Where(p => p.Name != null && p.Name.ToLower().Contains(search.ToLower())).ToList();
+            }
+
+            return PartialView("_CategoryTable", model);
         }
 
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            NewCategoryViewModel model = new NewCategoryViewModel();
+
+            return PartialView(model);
         }
 
-        [HttpPost]
-        public ActionResult Create(Category category)
-        {
-            categoryService.SaveCategory(category);
 
-            return RedirectToAction("Index");
+        [HttpPost]
+        public ActionResult Create(NewCategoryViewModel model)
+        {
+            var newCategory = new Category();
+            newCategory.Name = model.Name;
+            newCategory.Description = model.Description;
+            newCategory.ImageURL = model.ImageURL;
+            newCategory.isFeatured = model.isFeatured;
+
+            categoryService.SaveCategory(newCategory);
+
+            return RedirectToAction("CategoryTable");
         }
 
 
@@ -40,35 +65,39 @@ namespace Online_Store.Web.Controllers
         [HttpGet]
         public ActionResult Edit(int ID)
         {
+            EditCategoryViewModel model = new EditCategoryViewModel();
             var category =  categoryService.GetCategory(ID);
-            return View(category);
+
+            model.ID = category.ID;
+            model.Name = category.Name;
+            model.Description = category.Description;
+            model.ImageURL = category.ImageURL;
+            model.isFeatured = category.isFeatured;
+
+            return PartialView(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(Category category)
+        public ActionResult Edit(EditCategoryViewModel model)
         {
-            categoryService.UpdateCategory(category);
+            var existingCategory = categoryService.GetCategory(model.ID);
+            existingCategory.Name = model.Name;
+            existingCategory.Description = model.Description;
+            existingCategory.ImageURL = model.ImageURL;
+            existingCategory.isFeatured = model.isFeatured;
 
-            return RedirectToAction("Index");
+
+            return RedirectToAction("CategoryTable");
+
         }
 
-
-
-        [HttpGet]
+        [HttpPost]
         public ActionResult Delete(int ID)
         {
-            var category = categoryService.GetCategory(ID);
-
-            return View(category);
-        }
-
-        [HttpPost]
-        public ActionResult Delete(Category category)
-        {
-             category = categoryService.GetCategory(category.ID);
+            categoryService.DeleteCategory(ID);
 
 
-            return RedirectToAction("Index");
+            return RedirectToAction("CategoryTable");
         }
     }
 }

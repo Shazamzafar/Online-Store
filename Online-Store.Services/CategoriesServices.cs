@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace Online_Store.Services
 {
-   public class CategoriesServices
+   public class CategoriesService
     {
 
         public Category GetCategory(int ID)
@@ -19,11 +20,12 @@ namespace Online_Store.Services
             }
         }
 
+
         public  List<Category> GetCategories()
         {
             using (var context = new OSContext())
             {
-                return context.Categories.ToList();
+                return context.Categories.Include(x => x.Products).ToList();
             }
         }
 

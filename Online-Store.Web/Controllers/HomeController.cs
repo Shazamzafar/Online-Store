@@ -10,7 +10,7 @@ namespace Online_Store.Web.Controllers
 {
     public class HomeController : Controller
     {
-        CategoriesServices categoryService = new CategoriesServices();
+        CategoriesService categoryService = new CategoriesService();
 
         public ActionResult Index()
         {
