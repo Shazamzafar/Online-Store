@@ -17,5 +17,6 @@ namespace Online_Store.Database
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<config> Configurations { get; set; }
     }
 }
