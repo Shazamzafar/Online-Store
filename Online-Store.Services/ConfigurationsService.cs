@@ -10,23 +10,22 @@ namespace Online_Store.Services
 {
     public class ConfigurationsService
     {
-        
-        //public static ConfigurationsService ClassObject {
-        //    get { 
-            
-        //        if (privateInMemoryObject == null) privateInMemoryObject = new ConfigurationsService();
 
-        //        return privateInMemoryObject;
-        //    }
+        #region Singleton
+        public static ConfigurationsService Instance
+        {
+            get
+            {
+                if (instance == null) instance = new ConfigurationsService();
 
-        //}
-        //private static ConfigurationsService privateInMemoryObject { get; set; }
-
-
-
-        //private ConfigurationsService()
-        //{
-        //}
+                return instance;
+            }
+        }
+        private static ConfigurationsService instance { get; set; }
+        private ConfigurationsService()
+        {
+        }
+        #endregion
 
         public config GetConfig(string id)
         {
