@@ -13,6 +13,8 @@ namespace Online_Store.Entities
 
         public virtual Category Category { get; set; }
 
+        public string ImageURL { get; set; }
+
 
     }
 }
