@@ -11,6 +11,24 @@ namespace Online_Store.Services
 {
    public class ProductsService
     {
+        #region Singleton
+        public static ProductsService Instance
+        {
+            get
+            {
+
+                if (instance == null) instance = new ProductsService();
+
+                return instance;
+            }
+
+        }
+        private static ProductsService instance { get; set; }
+        private ProductsService()
+        {
+        }
+
+        #endregion
 
         public Product GetProduct(int ID)
         {
@@ -29,11 +47,16 @@ namespace Online_Store.Services
             }
         }
 
-        public  List<Product> GetProducts()
+        public List<Product> GetProducts(int pageNo)
         {
+            int pageSize = 5;
+
             using (var context = new OSContext())
             {
+                //return context.Products.OrderBy(x=>x.ID).Skip((pageNo-1)* pageSize).Take(pageSize).Include(x => x.Category).ToList();
+
                 return context.Products.Include(x => x.Category).ToList();
+
             }
         }
 

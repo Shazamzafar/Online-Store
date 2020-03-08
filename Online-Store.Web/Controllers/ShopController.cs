@@ -10,9 +10,6 @@ namespace Online_Store.Web.Controllers
 {
     public class ShopController : Controller
     {
-        ProductsService productsService = new ProductsService();
-
-
         public ActionResult Checkout()
         {
             CheckoutViewModel model = new CheckoutViewModel();
@@ -27,7 +24,7 @@ namespace Online_Store.Web.Controllers
 
                 model.CartProductIDs = CartProductsCookie.Value.Split('-').Select(x => int.Parse(x)).ToList();
 
-                model.CartProducts= productsService.GetProducts(model.CartProductIDs);
+                model.CartProducts= ProductsService.Instance.GetProducts(model.CartProductIDs);
             }
 
             return View(model);
