@@ -59,7 +59,7 @@ namespace Online_Store.Web.Controllers
 
             NewProductViewModel model = new NewProductViewModel();
 
-            model.AvailableCategories = CategoriesService.Instance.GetCategories();
+            model.AvailableCategories = CategoriesService.Instance.GetAllCategories();
 
             return PartialView(model);
         }
@@ -100,7 +100,7 @@ namespace Online_Store.Web.Controllers
             model.CategoryID = product.Category != null ? product.Category.ID : 0;
             model.ImageURL = product.ImageURL;
 
-            model.AvailableCategories = CategoriesService.Instance.GetCategories();
+            model.AvailableCategories = CategoriesService.Instance.GetAllCategories();
 
             return PartialView(model);
         }
