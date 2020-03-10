@@ -53,22 +53,13 @@ namespace Online_Store.Web.Controllers
         [HttpPost]
         public ActionResult Create(NewCategoryViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                var newCategory = new Category();
-                newCategory.Name = model.Name;
-                newCategory.Description = model.Description;
-                newCategory.ImageURL = model.ImageURL;
-                newCategory.isFeatured = model.isFeatured;
-
-                CategoriesService.Instance.SaveCategory(newCategory);
-
-                return RedirectToAction("CategoryTable");
-            }
-            else
-            {
-                return new HttpStatusCodeResult(500);
-            }
+            var newCategory = new Category();
+            newCategory.Name = model.Name;
+            newCategory.Description = model.Description;
+            newCategory.ImageURL = model.ImageURL;
+            newCategory.isFeatured = model.isFeatured;
+            CategoriesService.Instance.SaveCategory(newCategory);
+            return RedirectToAction("CategoryTable");
         }
 
         #endregion

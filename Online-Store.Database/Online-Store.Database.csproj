@@ -72,10 +72,6 @@
     <Compile Include="Migrations\202003082223344_imageURLinProducts.designer.cs">
       <DependentUpon>202003082223344_imageURLinProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003092238118_addedBasicValidations.cs" />
-    <Compile Include="Migrations\202003092238118_addedBasicValidations.designer.cs">
-      <DependentUpon>202003092238118_addedBasicValidations.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OSContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,9 +101,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003082223344_imageURLinProducts.resx">
       <DependentUpon>202003082223344_imageURLinProducts.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003092238118_addedBasicValidations.resx">
-      <DependentUpon>202003092238118_addedBasicValidations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

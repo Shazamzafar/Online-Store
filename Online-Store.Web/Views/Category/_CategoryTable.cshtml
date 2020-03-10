@@ -97,8 +97,7 @@
         $.ajax({
             url: '@Url.Action("CategoryTable", "Category")',
             data: {
-                pageNo: $(this).attr("data-pageNo"),
-                search: '@Model.SearchTerm'
+                pageNo: $(this).attr("data-pageNo")
             }
         })
         .done(function (response) {
