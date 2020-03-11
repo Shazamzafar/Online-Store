@@ -1,6 +1,7 @@
 ﻿using Online_Store.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -16,7 +17,11 @@ namespace Online_Store.Web.ViewModels
 
     public class NewCategoryViewModel
     {
+        [Required]
+        [MinLength(5), MaxLength(500)]
         public string Name { get; set; }
+
+        [MaxLength(500)]
         public string Description { get; set; }
 
         public string ImageURL { get; set; }
