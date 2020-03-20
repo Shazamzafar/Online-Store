@@ -6,18 +6,31 @@
 
 @if (Model != null && Model.Products != null)
 {
+    if (!Model.isLatestProducts)
+    {
+        <ul class="flat-filter style-1 text-center max-width-682 clearfix">
+            <li class="active"><a href="#" data-filter="*">All Product</a></li>
+
+            @foreach (var category in Model.Products.Select(x => x.Category).ToList().Distinct())
+            {
+                <li><a href="#" data-filter=".@category.Name.ToLower()">For @category.Name</a></li>}
+        </ul>
+    <div class="divider h54"></div>
+    }
+
+
     <div class="product-content product-fourcolumn clearfix">
-        <ul class="product style2 clearfix">
+        <ul class="product style2 isotope-product clearfix">
 
             @foreach (var product in Model.Products)
                 {
 
                     var imageURL = string.IsNullOrEmpty(product.ImageURL) ? defaultImageURL : product.ImageURL;
 
-                <li class="product-item">
+                <li class="product-item @product.Category.Name.ToLower()">
                     <div class="product-thumb clearfix">
                         <a href="#" class="product-thumb">
-                            <img src="@imageURL" alt="image">
+                            <img src="@imageURL" alt="image" style="height: 250px;">
                         </a>
                         @if (Model.isLatestProducts)
                         {
@@ -31,14 +44,14 @@
                         <div class="price">
                             <ins>
                                 <span class="amount">$ @product.Price</span>
-                    </ins>
-                </div>
-            </div>
-            <div class="add-to-cart text-center">
-                <a href="#">ADD TO CART</a>
-            </div>
-            <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-        </li>
+                            </ins>
+                        </div>
+                    </div>
+                    <div class="add-to-cart text-center">
+                        <a href="#">ADD TO CART</a>
+                    </div>
+                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                </li>
             }
         </ul>
     </div>
