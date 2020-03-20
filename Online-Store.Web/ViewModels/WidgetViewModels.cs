@@ -10,7 +10,6 @@ namespace Online_Store.Web.ViewModels
     {
         public List<Product> Products { get; set; }
 
-        public bool isLastestProducts { get; set; }
-        public bool IsLatestProducts { get; internal set; }
+        public bool isLatestProducts { get; set; }
     }
 }

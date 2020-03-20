@@ -60,6 +60,23 @@ namespace Online_Store.Services
             }
         }
 
+        public List<Product> GetProducts(int pageNo, int pageSize)
+        {
+            using (var context = new OSContext())
+            {
+                return context.Products.OrderByDescending(x => x.ID).Skip((pageNo - 1) * pageSize).Take(pageSize).Include(x => x.Category).ToList();
+            }
+        }
+
+        public List<Product> GetLatestProducts(int numberOfProducts)
+        {
+            using (var context = new OSContext())
+            {
+                return context.Products.OrderByDescending(x => x.ID).Take(numberOfProducts).Include(x => x.Category).ToList();
+
+            }
+        }
+
         public void SaveProduct(Product product)
         {
             using (var context = new OSContext())

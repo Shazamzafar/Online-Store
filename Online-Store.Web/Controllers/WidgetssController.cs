@@ -8,21 +8,17 @@ using System.Web.Mvc;
 
 namespace Online_Store.Web.Controllers
 {
-    public class WidgetsController : Controller
+    public class WidgetssController : Controller
     {
-        // GET: Widgets
-        public ActionResult Products(bool isLatestProducts, int? CategoryID = 0)
+        // GET: Widgetss
+        public ActionResult Products(bool isLatestProducts)
         {
             ProductsWidgetViewModel model = new ProductsWidgetViewModel();
-            model.IsLatestProducts = isLatestProducts;
+            model.isLatestProducts = isLatestProducts;
 
             if (isLatestProducts)
             {
                 model.Products = ProductsService.Instance.GetLatestProducts(4);
-            }
-            else if (CategoryID.HasValue && CategoryID.Value > 0)
-            {
-                model.Products = ProductsService.Instance.GetProductsByCategory(CategoryID.Value, 4);
             }
             else
             {
