@@ -130,6 +130,16 @@ namespace Online_Store.Web.Controllers
 
             return RedirectToAction("ProductTable");
         }
+
+        [HttpGet]
+        public ActionResult Details(int ID)
+        {
+            ProductViewModel model = new ProductViewModel();
+
+            model.Product = ProductsService.Instance.GetProduct(ID);
+
+            return View(model);
+        }
     }
 
 

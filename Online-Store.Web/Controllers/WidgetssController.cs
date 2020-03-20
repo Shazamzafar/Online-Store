@@ -11,7 +11,7 @@ namespace Online_Store.Web.Controllers
     public class WidgetssController : Controller
     {
         // GET: Widgetss
-        public ActionResult Products(bool isLatestProducts)
+        public ActionResult Products(bool isLatestProducts, int? CategoryID = 0)
         {
             ProductsWidgetViewModel model = new ProductsWidgetViewModel();
             model.isLatestProducts = isLatestProducts;
@@ -19,6 +19,10 @@ namespace Online_Store.Web.Controllers
             if (isLatestProducts)
             {
                 model.Products = ProductsService.Instance.GetLatestProducts(4);
+            }
+            else if (CategoryID.HasValue && CategoryID.Value > 0)
+            {
+                model.Products = ProductsService.Instance.GetProductsByCategory(CategoryID.Value, 4);
             }
             else
             {

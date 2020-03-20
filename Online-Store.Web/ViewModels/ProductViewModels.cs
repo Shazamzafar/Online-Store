@@ -36,4 +36,10 @@ namespace Online_Store.Web.ViewModels
 
         public List<Category> AvailableCategories { get; set; }
     }
+
+
+    public class ProductViewModel
+    {
+        public Product Product { get; set; }
+    }
 }

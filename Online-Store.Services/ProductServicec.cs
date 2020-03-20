@@ -68,6 +68,14 @@ namespace Online_Store.Services
             }
         }
 
+        public List<Product> GetProductsByCategory(int categoryID, int pageSize)
+        {
+            using (var context = new OSContext())
+            {
+                return context.Products.Where(x => x.Category.ID == categoryID).OrderByDescending(x => x.ID).Take(pageSize).Include(x => x.Category).ToList();
+            }
+        }
+
         public List<Product> GetLatestProducts(int numberOfProducts)
         {
             using (var context = new OSContext())
