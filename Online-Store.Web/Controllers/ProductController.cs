@@ -138,6 +138,8 @@ namespace Online_Store.Web.Controllers
 
             model.Product = ProductsService.Instance.GetProduct(ID);
 
+            if (model.Product == null) return HttpNotFound();
+
             return View(model);
         }
     }
