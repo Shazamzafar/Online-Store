@@ -501,6 +501,28 @@
     <Content Include="Content\images\slider\slider-bg-8.jpg" />
     <Content Include="Content\images\system\placeholder-image.png" />
     <Content Include="Content\images\wordpress-version.png" />
+    <Content Include="Content\javascript\bootstrap.min.js" />
+    <Content Include="Content\javascript\equalize.min.js" />
+    <Content Include="Content\javascript\gmap3.min.js" />
+    <Content Include="Content\javascript\images-loaded.js" />
+    <Content Include="Content\javascript\jquery-countTo.js" />
+    <Content Include="Content\javascript\jquery-ui.js" />
+    <Content Include="Content\javascript\jquery-waypoints.js" />
+    <Content Include="Content\javascript\jquery.cookie.js" />
+    <Content Include="Content\javascript\jquery.countdown.js" />
+    <Content Include="Content\javascript\jquery.easing.js" />
+    <Content Include="Content\javascript\jquery.flexslider-min.js" />
+    <Content Include="Content\javascript\jquery.gomap-1.3.2.min.js" />
+    <Content Include="Content\javascript\jquery.hoverdir.js" />
+    <Content Include="Content\javascript\jquery.isotope.min.js" />
+    <Content Include="Content\javascript\jquery.min.js" />
+    <Content Include="Content\javascript\magnific.popup.min.js" />
+    <Content Include="Content\javascript\main.js" />
+    <Content Include="Content\javascript\owl.carousel.min.js" />
+    <Content Include="Content\javascript\parallax.js" />
+    <Content Include="Content\javascript\rev-slider.js" />
+    <Content Include="Content\javascript\switcher.js" />
+    <Content Include="Content\javascript\tether.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -572,13 +594,13 @@
     <Content Include="Views\Widgetss\Products.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Shop\FilterProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\fonts\" />
     <Folder Include="Content\icon\" />
     <Folder Include="Content\images\about\" />
-    <Folder Include="Content\javascript\" />
     <Folder Include="Content\rev-slider\" />
     <Folder Include="Content\stylesheets\" />
   </ItemGroup>
