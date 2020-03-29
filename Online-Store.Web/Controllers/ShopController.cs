@@ -28,7 +28,7 @@ namespace Online_Store.Web.Controllers
 
             model.CategoryID = categoryID;
 
-            int totalCount = ProductsService.Instance.SearchProductsCount(searchTerm, minimumPrice, maximumPrice, categoryID, sortBy);
+            int totalCount =  ProductsService.Instance.SearchProductsCount(searchTerm, minimumPrice, maximumPrice, categoryID, sortBy);
 
             model.Pager = new Pager(totalCount, pageNo);
 

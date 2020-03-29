@@ -52,7 +52,6 @@
                 <li class="prev">
                     <a href="@Url.Action("Index", "Shop", new { pageNo = Model.Pager.CurrentPage - 1})"><i class="fa fa-angle-left"></i></a>
                 </li>
-                <li><a href="@Url.Action("Index", "Shop", new { pageNo = 1})">1</a></li>
             }
 
             @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
@@ -64,8 +63,7 @@
             @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
             {
 
-                <li><a href="@Url.Action("Index", "Shop", new { pageNo = @Model.Pager.CurrentPage + 1 })"><i class="fa fa-angle-right"> Next</i></a></li>
-                <li><a href="@Url.Action("Index", "Shop", new { pageNo = @Model.Pager.EndPage })"><i class="fa fa-angle-right"> last</i></a></li>
+                <li><a href="@Url.Action("Index", "Shop", new { pageNo = @Model.Pager.CurrentPage + 1 })"><i class="fa fa-angle-right"></i></a></li>
 
             }
         </ul><!-- /.flat-pagination -->
