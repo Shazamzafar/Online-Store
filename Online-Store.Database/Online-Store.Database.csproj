@@ -76,6 +76,10 @@
     <Compile Include="Migrations\202003110542141_addedBasicValidations.designer.cs">
       <DependentUpon>202003110542141_addedBasicValidations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004030408304_test.cs" />
+    <Compile Include="Migrations\202004030408304_test.designer.cs">
+      <DependentUpon>202004030408304_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OSContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003110542141_addedBasicValidations.resx">
       <DependentUpon>202003110542141_addedBasicValidations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004030408304_test.resx">
+      <DependentUpon>202004030408304_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
