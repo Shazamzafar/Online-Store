@@ -11,7 +11,6 @@ namespace Online_Store.Web.Controllers
 {
     public class ShopController : Controller
     {
-
         public ActionResult Index(string searchTerm, int? minimumPrice, int? maximumPrice, int? categoryID, int? sortBy, int? pageNo)
         {
             ShopViewModel model = new ShopViewModel();
