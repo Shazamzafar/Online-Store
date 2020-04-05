@@ -56,6 +56,37 @@
 
 
 <script>
+    $('#createProduct').validate({
+        rules: {
+            Name: {
+                required: true,
+                minlength: 5,
+                maxlength: 500
+
+            },
+            Description: {
+                maxlength: 500
+            },
+            Price: {
+                range: [1, 100000]
+            }
+        },
+        messages: {
+            Name: {
+                required: 'Name is required',
+                minlength: 'Minmum Length is 5',
+                maxlength: 'Maxmum Length is 500'
+
+            },
+            Description: {
+                maxlength: 'Maxmum Length is 500'
+            },
+            Price: {
+                range: 'Price must be within range of 1 - 100000.'
+            }
+        }
+    });
+
 
 	$("#imageUpload").change(function () {
 		var element = this;
@@ -87,20 +118,31 @@
 
 
     $("#saveBtn").click(function () {
-        $.ajax({
-            type: 'POST',
-            url: '@Url.Action("Create", "Product")',
-            data: $("#createProduct").serialize()
-        })
-        .done(function (response) {
-            $("#tableContainer").html(response);
-            $("#actionContainer").html("");
+        if ($("#createProduct").valid()) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Create", "Product")',
+                data: $("#createProduct").serialize()
+            })
+            .done(function (response) {
+                $("#tableContainer").html(response);
+                $("#actionContainer").html("");
 
-            focusAction("tableContiner");
-        })
-        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("FAIL");
-        });
+                focusAction("tableContiner");
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("FAIL");
+            });
+        }
+        else {
+            swal({
+                title: "Warning",
+                text: "Please enter all vaild data in fields",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            });
+        }
     });
 
     $("#cancelBtn").click(function () {

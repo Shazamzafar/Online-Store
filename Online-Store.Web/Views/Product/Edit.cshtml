@@ -51,50 +51,93 @@
 </form>
 
 <script>
-	$("#imageUpload").change(function () {
-		var element = this;
-		var formData = new FormData();
-		var totalFiles = element.files.length;
-		for (var i = 0; i < totalFiles; i++) {
-			var file = element.files[i];
-			formData.append("Photo", file);
-		}
-		$.ajax({
-			type: 'POST',
-			url: '@Url.Action("UploadImage", "Shared")',
-			dataType: 'json',
-			data: formData,
-			contentType: false,
-			processData: false
-		})
+    $('#editProduct').validate({
+        rules: {
+            Name: {
+                required: true,
+                minlength: 5,
+                maxlength: 500
+
+            },
+            Description: {
+                maxlength: 500
+            },
+            Price: {
+                range: [1, 100000]
+            }
+        },
+        messages: {
+            Name: {
+                required: 'Name is required',
+                minlength: 'Minmum Length is 5',
+                maxlength: 'Maxmum Length is 500'
+
+            },
+            Description: {
+                maxlength: 'Maxmum Length is 500'
+            },
+            Price: {
+                range: 'Price must be within range of 1 - 100000.'
+            }
+        }
+    });
+
+
+    $("#imageUpload").change(function () {
+        var element = this;
+        var formData = new FormData();
+        var totalFiles = element.files.length;
+        for (var i = 0; i < totalFiles; i++) {
+            var file = element.files[i];
+            formData.append("Photo", file);
+        }
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("UploadImage", "Shared")',
+            dataType: 'json',
+            data: formData,
+            contentType: false,
+            processData: false
+        })
         .done(function (response) {
-        	console.log(response);
-        	if (response.Success) {
-        		$("#ImageURL").val(response.ImageURL);
-        		$("#productImage").attr("src", response.ImageURL);
-        	}
+            console.log(response);
+            if (response.Success) {
+                $("#ImageURL").val(response.ImageURL);
+                $("#productImage").attr("src", response.ImageURL);
+            }
         })
         .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-        	alert("FAIL");
+            alert("FAIL");
         });
-	});
-	$("#updateBtn").click(function () {
-		$.ajax({
-			type: 'POST',
-			url: '@Url.Action("Edit", "Product")',
-			data: $("#editProduct").serialize()
-		})
-        .done(function (response) {
-        	$("#tableContiner").html(response);
-        	$("#actionContainer").html("");
-        	focusAction("tableContiner");
-        })
-        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-        	alert("FAIL");
-        });
-	});
-	$("#cancelBtn").click(function () {
-		$("#actionContainer").html("");
-		focusAction("tableContiner");
-	});
+    });
+    $("#updateBtn").click(function () {
+        if ($("#editProduct").valid()) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Edit", "Product")',
+                data: $("#editProduct").serialize()
+            })
+            .done(function (response) {
+                $("#tableContiner").html(response);
+                $("#actionContainer").html("");
+                focusAction("tableContiner");
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("FAIL");
+            });
+        }
+        else {
+            swal({
+                title: "Warning",
+                text: "Please enter all vaild data in fields",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            });
+        }
+    });
+    $("#cancelBtn").click(function () {
+        $("#actionContainer").html("");
+        focusAction("tableContiner");
+    });
 </script>

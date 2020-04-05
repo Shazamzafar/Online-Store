@@ -33,6 +33,17 @@ namespace Online_Store.Services
             {
                 return context.Configurations.Find(id);
             }
-        } 
+        }
+
+        public int PageSize()
+        {
+            using (var context = new OSContext())
+            {
+                var pageSizeConfig = context.Configurations.Find("PageSize");
+
+                return pageSizeConfig != null ? int.Parse(pageSizeConfig.Value) : 5;
+            }
+
+        }
     }
 }
