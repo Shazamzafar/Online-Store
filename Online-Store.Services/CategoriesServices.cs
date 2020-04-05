@@ -124,8 +124,9 @@ namespace Online_Store.Services
             {
 
 
-                var category = context.Categories.Find(ID);
+                var category = context.Categories.Where(x=>x.ID == ID).Include(x=>x.Products).FirstOrDefault();
 
+                context.Products.RemoveRange(category.Products); // first delete products of this category
                 context.Categories.Remove(category);
                 context.SaveChanges();
             }

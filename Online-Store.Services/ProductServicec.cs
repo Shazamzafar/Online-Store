@@ -223,9 +223,9 @@ namespace Online_Store.Services
             }
         }
 
-        public void UpdateProduct(int iD)
-        {
-            throw new NotImplementedException();
-        }
+        //public void UpdateProduct(int iD)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
