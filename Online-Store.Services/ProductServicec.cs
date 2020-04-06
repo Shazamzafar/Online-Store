@@ -247,8 +247,23 @@ namespace Online_Store.Services
         {
             using (var context = new OSContext())
             {
+                // take product from database and update its properties from the supplied product object.
 
-                context.Entry(product).State = System.Data.Entity.EntityState.Modified;
+                var productInDB = context.Products.Where(x => x.ID == product.ID).FirstOrDefault();
+
+                productInDB.Name = product.Name;
+                productInDB.Description = product.Description;
+                productInDB.Price = product.Price;
+
+                productInDB.Category = product.Category;
+                // dont update imageURL if its empty
+                if (!string.IsNullOrEmpty(product.ImageURL))
+                {
+                    productInDB.ImageURL = product.ImageURL;
+                }
+
+                // and then update this product which is taken from database
+                context.Entry(productInDB).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
             }
         }

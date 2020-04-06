@@ -46,7 +46,7 @@
 
 
 
-    @if (Model.Pager != null)
+    @if (Model.Pager != null && Model.Pager.TotalPages > 1)
     {
 
         <div class="product-pagination text-center clearfix">
@@ -54,18 +54,18 @@
                 @if (Model.Pager.CurrentPage > 1)
                 { 
                 <li class="prev">
-                    <a href="@Url.Action("Index", "Shop", new { pageNo = Model.Pager.CurrentPage-1})"><i class="fa fa-angle-left"></i></a>
+                    <a href="@Url.Action("Index", "Shop", new { pageNo = Model.Pager.CurrentPage-1, sortBy = Model.SortBy, categoryID = Model.CategoryID })"><i class="fa fa-angle-left"></i></a>
                 </li>
                 }
                @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
                 {
                 string activeClass = Model.Pager.CurrentPage == page ? "active bg-info" : string.Empty;
 
-                <li class="@activeClass"><a href="@Url.Action("Index", "Shop", new { pageNo = page})" title="">@page</a></li>
+                <li class="@activeClass"><a href="@Url.Action("Index", "Shop", new { pageNo = page, sortBy = Model.SortBy, categoryID = Model.CategoryID})" title="">@page</a></li>
                }
             @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
               {
-            <li><a href="{}@Url.Action("Index", "Shop", new { pageNo = Model.Pager.CurrentPage + 1})"><i class="fa fa-angle-right"></i></a></li>
+            <li><a href="{}@Url.Action("Index", "Shop", new { pageNo = Model.Pager.CurrentPage + 1, sortBy = Model.SortBy, categoryID = Model.CategoryID})"><i class="fa fa-angle-right"></i></a></li>
             }
             </ul><!-- /.flat-pagination -->
         </div>

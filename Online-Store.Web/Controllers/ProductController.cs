@@ -97,11 +97,7 @@ namespace Online_Store.Web.Controllers
             existingProduct.Category = CategoriesService.Instance.GetCategory(model.CategoryID);
             existingProduct.ImageURL = model.ImageURL;
 
-            // dont update imageURL if its empty
-            if (!string.IsNullOrEmpty(model.ImageURL))
-            {
-                existingProduct.ImageURL = model.ImageURL;
-            }
+       
             ProductsService.Instance.UpdateProduct(existingProduct);
 
             return RedirectToAction("ProductTable");
