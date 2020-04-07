@@ -1,4 +1,5 @@
 ﻿using Online_Store.Entities;
+using Online_Store.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace Online_Store.Web.ViewModels
         public List<Product> CartProducts { get; set; }
 
         public List<int> CartProductIDs { get; set; }
+
+        public ApplicationUser User { get; set; }
     }
 
     public class ShopViewModel
@@ -22,6 +25,7 @@ namespace Online_Store.Web.ViewModels
         public int? CategoryID { get;  set; }
 
         public Pager Pager { get; set; }
+        public string SearchTerm { get; set; }
     }
 
     public class FilterProductsViewModel
@@ -30,5 +34,6 @@ namespace Online_Store.Web.ViewModels
         public Pager Pager { get; set; }
         public int? SortBy { get;  set; }
         public int? CategoryID { get;  set; }
+        public string SearchTerm { get; set; }
     }
 }

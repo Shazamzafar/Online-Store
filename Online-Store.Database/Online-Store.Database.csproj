@@ -80,6 +80,22 @@
     <Compile Include="Migrations\202004030408304_test.designer.cs">
       <DependentUpon>202004030408304_test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004060329572_addedCategoryIDInProduct.cs" />
+    <Compile Include="Migrations\202004060329572_addedCategoryIDInProduct.designer.cs">
+      <DependentUpon>202004060329572_addedCategoryIDInProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004070306391_AddedOrderandOrderItemsTable.cs" />
+    <Compile Include="Migrations\202004070306391_AddedOrderandOrderItemsTable.designer.cs">
+      <DependentUpon>202004070306391_AddedOrderandOrderItemsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004070416468_AddedOrderandOrderItemsTable1.cs" />
+    <Compile Include="Migrations\202004070416468_AddedOrderandOrderItemsTable1.designer.cs">
+      <DependentUpon>202004070416468_AddedOrderandOrderItemsTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004070421421_AddedQuantityInOrderItems.cs" />
+    <Compile Include="Migrations\202004070421421_AddedQuantityInOrderItems.designer.cs">
+      <DependentUpon>202004070421421_AddedQuantityInOrderItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OSContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,6 +131,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004030408304_test.resx">
       <DependentUpon>202004030408304_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004060329572_addedCategoryIDInProduct.resx">
+      <DependentUpon>202004060329572_addedCategoryIDInProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004070306391_AddedOrderandOrderItemsTable.resx">
+      <DependentUpon>202004070306391_AddedOrderandOrderItemsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004070416468_AddedOrderandOrderItemsTable1.resx">
+      <DependentUpon>202004070416468_AddedOrderandOrderItemsTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004070421421_AddedQuantityInOrderItems.resx">
+      <DependentUpon>202004070421421_AddedQuantityInOrderItems.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

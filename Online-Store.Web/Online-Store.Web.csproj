@@ -210,6 +210,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003292137426_InitialCreate.cs" />
+    <Compile Include="Migrations\202003292137426_InitialCreate.Designer.cs">
+      <DependentUpon>202003292137426_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004070159373_AddedNewPropertiesToUser.cs" />
+    <Compile Include="Migrations\202004070159373_AddedNewPropertiesToUser.designer.cs">
+      <DependentUpon>202004070159373_AddedNewPropertiesToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -523,6 +532,17 @@
     <Content Include="Content\javascript\rev-slider.js" />
     <Content Include="Content\javascript\switcher.js" />
     <Content Include="Content\javascript\tether.min.js" />
+    <Content Include="Content\stylesheets\animate.css" />
+    <Content Include="Content\stylesheets\bootstrap.css" />
+    <Content Include="Content\stylesheets\flexslider.css" />
+    <Content Include="Content\stylesheets\font-awesome.css" />
+    <Content Include="Content\stylesheets\jquery-ui.css" />
+    <Content Include="Content\stylesheets\magnific-popup.css" />
+    <Content Include="Content\stylesheets\owl.carousel.css" />
+    <Content Include="Content\stylesheets\responsive.css" />
+    <Content Include="Content\stylesheets\shortcodes.css" />
+    <Content Include="Content\stylesheets\style.css" />
+    <Content Include="Content\stylesheets\woocommerce.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -602,7 +622,7 @@
     <Folder Include="Content\icon\" />
     <Folder Include="Content\images\about\" />
     <Folder Include="Content\rev-slider\" />
-    <Folder Include="Content\stylesheets\" />
+    <Folder Include="Content\stylesheets\colors\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -621,6 +641,14 @@
       <Project>{0D438E30-8B9F-4454-9C83-F7D1CF4530B0}</Project>
       <Name>Online-Store.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202003292137426_InitialCreate.resx">
+      <DependentUpon>202003292137426_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004070159373_AddedNewPropertiesToUser.resx">
+      <DependentUpon>202004070159373_AddedNewPropertiesToUser.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -8,38 +8,29 @@
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <!-- Bootstrap  -->
     <link rel="stylesheet" type="text/css" href="~/Content/stylesheets/bootstrap.css">
-
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="~/Content/stylesheets/style.css">
     <link rel="stylesheet" type="text/css" href="~/Content/stylesheets/responsive.css">
-
     <!-- Colors -->
     <link rel="stylesheet" type="text/css" href="~/Content/stylesheets/colors/color1.css" id="colors">
-
     <!-- Animation Style -->
     <link rel="stylesheet" type="text/css" href="~/Content/stylesheets/animate.css">
-
-
     <!-- Favicon and touch icons  -->
     <link href="favicon.ico" rel="shortcut icon">
-
     <!--[if lt IE 9]>
-        <script src="~/Content/html5shiv.js"></script>
-        <script src="~/Content/respond.min.js"></script>
+        <script src="~/Content/javascript/html5shiv.js"></script>
+        <script src="~/Content/javascript/respond.min.js"></script>
     <![endif]-->
-
     <script src="~/Content/javascript/jquery.min.js"></script>
     <script src="~/Content/javascript/jquery-ui.js"></script>
-
 </head>
-<body class="header_sticky header-style-1 has-menu-extra">
+<body class="header_sticky header-style-2 has-menu-extra">
     <!-- Preloader -->
     <div id="loading-overlay">
         <div class="loader"></div>
-    </div> 
+    </div>
 
     <!-- Boxed -->
     <div class="boxed">
@@ -61,31 +52,34 @@
                                 <button type="submit" class="header-search-submit" title="Search">Search</button>
                             </form>
                         </li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li class="box-login">
-                            <a class="icon_login" href="#">
-                                @User.Identity.Name
-                            </a>
-                        </li>
-                    }
-
-
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="box-login">
+                                <a class="icon_login" href="#">
+                                    @User.Identity.Name
+                                </a>
+                            </li>
+                        }
 
                         <li class="box-cart nav-top-cart-wrapper">
-                            <a class="icon_cart nav-cart-trigger active" href="#"><span>3</span></a>
+                            <a class="icon_cart nav-cart-trigger active" href="@Url.Action("Checkout", "Shop")"><span id="cartProductsCount">0</span></a>
+                        </li>
+
+                        <li class="box-login box-cart nav-top-cart-wrapper">
+                            <a class="icon_login nav-cart-trigger active" href="#"></a>
                             <div class="nav-shop-cart">
                                 <div class="widget_shopping_cart_content">
                                     <div class="woocommerce-min-cart-wrap">
-                                        <ul class="woocommerce-mini-cart cart_list product_list_widget ">
-                                            <li class="woocommerce-mini-cart-item mini_cart_item">
-                                                <span>No Items in Shopping Cart</span>
-                                            </li>
-                                        </ul>
+                                            <ul class="menu">
+                                                <li>
+                                                    <a href="/">HOME</a>
+                                                </li>
+                                            </ul>
                                     </div><!-- /.widget_shopping_cart_content -->
                                 </div>
                             </div><!-- /.nav-shop-cart -->
                         </li>
+
                     </ul><!-- /.menu-extra -->
                     <div class="nav-wrap">
                         <nav id="mainnav" class="mainnav">
@@ -105,9 +99,9 @@
                 </div><!-- /.container-fluid -->
             </header><!-- /header -->
         </div><!-- /.site-header-wrap -->
-      
+
         @RenderBody()
-    
+
         <section class="flat-row mail-chimp">
             <div class="container">
                 <div class="row">
@@ -189,7 +183,6 @@
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </footer><!-- /.footer -->
-
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
@@ -199,11 +192,10 @@
                 </div>
             </div>
         </div>
-
         <!-- Go Top -->
         <a class="go-top">
             <i class="fa fa-chevron-up"></i>
-        </a>  
+        </a>
     </div>
 
     <!-- Javascript -->
@@ -224,10 +216,8 @@
     <script src="~/Content/javascript/gmap3.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIEU6OT3xqCksCetQeNLIPps6-AYrhq-s&region=GB"></script>
     <script src="~/Content/javascript/jquery-ui.js"></script>
-
     <script src="~/Content/javascript/jquery.cookie.js"></script>
     <script src="~/Content/javascript/main.js"></script>
-
     <!-- Revolution Slider -->
     <script src="~/Content/rev-slider/js/jquery.themepunch.tools.min.js"></script>
     <script src="~/Content/rev-slider/js/jquery.themepunch.revolution.min.js"></script>
@@ -242,9 +232,6 @@
     <script src="~/Content/rev-slider/js/extensions/revolution.extension.parallax.min.js"></script>
     <script src="~/Content/rev-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
     <script src="~/Content/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
-
-
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
 </body>
 </html>

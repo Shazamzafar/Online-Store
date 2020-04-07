@@ -94,10 +94,16 @@ namespace Online_Store.Web.Controllers
             existingProduct.Name = model.Name;
             existingProduct.Description = model.Description;
             existingProduct.Price = model.Price;
-            existingProduct.Category = CategoriesService.Instance.GetCategory(model.CategoryID);
-            existingProduct.ImageURL = model.ImageURL;
 
-       
+            existingProduct.Category = null; // mark it null, becuase the reference is changed below
+            existingProduct.CategoryID = model.CategoryID;
+
+            // dont update imageURL if its empty
+            if (!string.IsNullOrEmpty(model.ImageURL))
+            {
+                existingProduct.ImageURL = model.ImageURL;
+            }
+
             ProductsService.Instance.UpdateProduct(existingProduct);
 
             return RedirectToAction("ProductTable");

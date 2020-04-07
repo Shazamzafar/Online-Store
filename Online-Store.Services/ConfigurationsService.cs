@@ -45,5 +45,16 @@ namespace Online_Store.Services
             }
 
         }
+
+        public int ShopPageSize()
+        {
+            using (var context = new OSContext())
+            {
+                var pageSizeConfig = context.Configurations.Find("ShopPageSize");
+
+                return pageSizeConfig != null ? int.Parse(pageSizeConfig.Value) : 6;
+            }
+
+        }
     }
 }
