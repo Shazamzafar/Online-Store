@@ -7,13 +7,13 @@ namespace Online_Store.Database.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class AddedOrderandOrderItemsTable : IMigrationMetadata
+    public sealed partial class AddedQuantityInOrderItem : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedOrderandOrderItemsTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedQuantityInOrderItem));
         
         string IMigrationMetadata.Id
         {
-            get { return "202004070306391_AddedOrderandOrderItemsTable"; }
+            get { return "202004092127029_AddedQuantityInOrderItem"; }
         }
         
         string IMigrationMetadata.Source
