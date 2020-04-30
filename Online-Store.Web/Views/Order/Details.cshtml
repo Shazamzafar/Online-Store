@@ -15,10 +15,12 @@
                         {
                             <li class="list-group-item d-flex justify-content-between lh-condensed" data-id="@orderItem.ID">
                                 <div>
-                                    <h6 class="my-0">@i - @orderItem.Product.Name - Qty: @orderItem.Quantity</h6>
-                                    <small class="text-muted">@(orderItem.Product.Description.Length > 100 ? orderItem.Product.Description.Substring(0, 99) : orderItem.Product.Description)</small>
+                                    @*Error happing here*@
+
+                                    <h6 class="my-0">@*@i - @orderItem.Product.Name -*@ Qty: @orderItem.Quantity</h6>
+                                    @*<small class="text-muted">@(orderItem.Product.Description.Length > 100 ? orderItem.Product.Description.Substring(0, 99) : orderItem.Product.Description)</small>*@
                                 </div>
-                                <span class="text-muted">Unit Price: $ @orderItem.Product.Price - Total Price: @(orderItem.Quantity * orderItem.Product.Price)</span>
+                                @*<span class="text-muted">Unit Price: $ @orderItem.Product.Price - Total Price: @(orderItem.Quantity * orderItem.Product.Price)</span>*@
                             </li>i++;
                         }
 

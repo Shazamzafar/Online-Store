@@ -1,17 +1,124 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
+@*<h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+>*@
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+
+    	<!-- Page title -->
+<div class="page-title parallax parallax1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title-heading">
+                    <h1 class="title">Contact</h1>
+                </div><!-- /.page-title-heading -->
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div><!-- /.page-title -->
+
+<section class="flat-row flat-iconbox">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-section">
+                    <h2 class="title">
+                        Get In Touch
+                    </h2>
+                </div><!-- /.title-section -->
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="iconbox text-center">
+                    <div class="box-header nomargin">
+                        <div class="icon">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                    </div><!-- /.box-header -->
+                    <div class="box-content">
+                        <p>94 S. Roehampton Ave. Lima, OH 45255</p>
+                    </div><!-- /.box-content -->
+                </div><!-- /.iconbox -->
+            </div><!-- /.col-md-4 -->
+            <div class="col-md-4">
+                <div class="divider h0"></div>
+                <div class="iconbox text-center">
+                    <div class="box-header">
+                        <div class="icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                    </div><!-- /.box-header -->
+                    <div class="box-content">
+                        <p>424-232-1222</p>
+                    </div><!-- /.box-content -->
+                </div><!-- /.iconbox -->
+            </div><!-- /.col-md-4 -->
+            <div class="col-md-4">
+                <div class="divider h0"></div>
+                <div class="iconbox text-center">
+                    <div class="box-header">
+                        <div class="icon">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                    </div><!-- /.box-header -->
+                    <div class="box-content">
+                        <p>DigitalDivine@gmail.com</p>
+                    </div><!-- /.box-content -->
+                </div><!-- /.iconbox -->
+            </div><!-- /.col-md-4 -->
+        </div><!-- /.row -->
+        <div class="divider h43"></div>
+        <div class="row">
+            <div class="col-md-12">
+            <center>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3052.824874734872!2d-82.95853398431848!3d40.07931828401419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88388b2701dd1f83%3A0x3fb6290d1c8d859b!2sMallards%20Marsh%2C%20Columbus%2C%20OH%2043229!5e0!3m2!1sen!2sus!4v1588223447579!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>            </div><!-- /.col-md-12 -->
+        </center>
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.flat-row -->
+
+
+<section class="flat-row flat-contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title-section margin_bottom_17">
+                    <h2 class="title">
+                        Send Us Email
+                    </h2>
+                </div><!-- /.title-section -->
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+        <div class="row">
+            <div class="wrap-contact style2">
+                <form novalidate="" class="contact-form" id="contactform" method="post" action="#">
+                    <div class="form-text-wrap clearfix">
+                        <div class="contact-name">
+                            <label></label>
+                            <input type="text" placeholder="Name" aria-required="true" size="30" value="" name="author" id="author">
+                        </div>
+                        <div class="contact-email">
+                            <label></label>
+                            <input type="email" size="30" placeholder="Email" value="" name="email" id="email">
+                        </div>
+                        <div class="contact-subject">
+                            <label></label>
+                            <input type="text" placeholder="Subject" aria-required="true" size="30" value="" name="subject" id="subject">
+                        </div>
+                    </div>
+                    <div class="contact-message clearfix">
+                        <label></label>
+                        <textarea class="" tabindex="4" placeholder="Message" name="message" required></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button class="contact-submit">SEND</button>
+                    </div>
+                </form>
+            </div><!-- /.wrap-contact -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.flat-row -->
